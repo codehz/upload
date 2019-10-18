@@ -1,0 +1,40 @@
+:host {
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+  background-image: linear-gradient(to right, lightblue 0%, lightblue var(--progress, 100%), white var(--progress, 100%), white 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all ease 1s;
+}
+
+:host(upload-progress:not([done]):not([error]):host) {
+  cursor: not-allowed;
+}
+
+:host(upload-progress:host) a:link {
+  text-decoration: none;
+}
+
+:host(upload-progress[error]:host) {
+  background: red;
+  color: white;
+}
+:host(upload-progress[done]:host) {
+  background: lightgreen;
+}
+
+#container {
+  display: flex;
+}
+
+#title {
+  flex: 1;
+  padding: 5px;
+}
+
+#error:empty {
+  display: none;
+}
